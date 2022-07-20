@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import './SingleTodo.css'
 import { Todo } from '../../interface/todo-models'
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai'
@@ -48,6 +48,14 @@ const SingleTodo: React.FC<Props> = ({ todo, key, todos, setTodos }) => {
         setEdit(false);
     }
 
+
+    // Focus when the text is edit. If not the user need to add the cursor in it
+    const inputRef = useRef<HTMLInputElement>(null)
+
+    useEffect(() => {
+        inputRef.current?.focus();
+    }, [edit])
+
     console.log(edit)
   return (
     <form className='todos__single' onSubmit={(e) => handleSubmit(e, todo.id)}>
@@ -56,6 +64,7 @@ const SingleTodo: React.FC<Props> = ({ todo, key, todos, setTodos }) => {
     {edit? (
 
         <input 
+            ref={inputRef}
             value={editTodo}  
             onChange={(e) => setEditTodo(e.target.value)}
             className='todos__single--text'

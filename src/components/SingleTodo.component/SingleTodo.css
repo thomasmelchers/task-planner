@@ -1,11 +1,12 @@
 .todos__single {
     display: flex;
-    width: 29.5%;
+    /* width: 29.5%; */
     border-radius: 5px;
     padding: 20px;
     /* border: 1px solid red; */
     margin-top: 15px;
     background-image: url("https://img.freepik.com/free-photo/crumpled-yellow-paper-background-close-up_60487-2390.jpg?size=626&ext=jpg");
+    transition: 0.2s
 }
 
 .todos__single--text {
@@ -21,7 +22,7 @@
 
 .todos__single:hover {
     box-shadow: 0 0 5px black;
-    transform: scale(1.03);
+    transform: scale(1.01);
 }
 
 .icon {
@@ -35,9 +36,7 @@
 }
 
 @media (max-width: 700px) {
-    .todos__single {
-        width: 100%;
-    }
+    
 
     .todos__single--text {
         font-size: 17px;
@@ -49,8 +48,3 @@
     }
 }
 
-@media (max-width: 1200px) {
-    .todos__single {
-        width: 40%;
-    }
-}

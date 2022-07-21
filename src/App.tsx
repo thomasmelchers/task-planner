@@ -7,27 +7,27 @@ import { Todo } from './interface/todo-models';
 const App: React.FC = () => { // React.FC => functionnal component
 
   const [todo, setTodo] = useState<string | number>("");
-  console.log(todo);
   const [todos, setTodos] = useState<Todo[]>([]);
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault()
 
     if (todo) {
-      setTodos([...todos, { id: Date.now(), todo, isDone: false } ])
+      setTodos([...todos, { id: Date.now(), todo, isDone: false, location: "todo" } ])
       setTodo("");
     }
     console.log(todos)
   }
 
-
   return (
-    <div className="App">
-      <span className="heading">Task Planner</span>
 
-      <InputFields todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
-      <TodoList todos={todos} setTodos={setTodos} />
-    </div>
+      <div className="App">
+        <span className="heading">Task Planner</span>
+
+        <InputFields todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
+        <TodoList todos={todos} setTodos={setTodos} />
+      </div>
+
   );
 }
 

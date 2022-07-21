@@ -13,7 +13,7 @@ const App: React.FC = () => { // React.FC => functionnal component
     e.preventDefault()
 
     if (todo) {
-      setTodos([...todos, { id: Date.now(), todo, isDone: false, location: "todo" } ])
+      setTodos([...todos, { id: Date.now(), todo, isDone: false, location: "unStarted" } ])
       setTodo("");
     }
     console.log(todos)

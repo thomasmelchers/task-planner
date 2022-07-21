@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import './SingleTodo.css'
 import { Todo } from '../../interface/todo-models'
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai'
-import { MdDone } from 'react-icons/md'
+import { MdDone, MdAddCircle, MdRemoveCircle } from 'react-icons/md'
 
 
 
@@ -17,6 +17,29 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
     const [edit, setEdit] = useState<boolean>(false);
     const [editTodo, setEditTodo] = useState<string | number>(todo.todo);
 
+    const handleStart = (id: number) => {
+        setTodos(
+            todos.map((todo) => 
+                todo.id === id? 
+                    todo.location === 'unStarted'?
+                        { ...todo, location: 'todo' } :
+                        todo
+                : todo       
+            )
+        )
+    }
+
+    const handleRemove = (id: number) => {
+        setTodos(
+            todos.map((todo) => 
+                todo.id === id? 
+                    todo.location === 'todo'?
+                        { ...todo, location: 'unStarted' } :
+                        todo
+                : todo       
+            )
+        )
+    }
 
     // FILTER FUNCTION : if the id of the selected item is different of the id of other item then it keep the last item
     const handleDelete = (id: number) => {
@@ -87,6 +110,19 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
             }
 
                 <div>
+                    { (todo.location === 'unStarted') &&
+                    <span className='icon' onClick={() => handleStart(todo.id) }> 
+                        <MdAddCircle /> 
+                    </span>
+                    }
+
+                    { (todo.location === 'todo') &&
+                    <span className='icon' onClick={() => handleRemove(todo.id) }> 
+                        <MdRemoveCircle/> 
+                    </span>
+                    }
+
+                    
                     <span 
                         className='icon' 
                         onClick= { () => 
@@ -101,13 +137,17 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
                         <AiFillEdit /> 
                     </span>
                     
+                    
                     <span className='icon' onClick={() => handleDelete(todo.id) }> 
                         <AiFillDelete /> 
                     </span>
                     
+                    { (todo.location === 'todo' || todo.location === 'completed') &&
                     <span className='icon' onClick={() => handleDone(todo.id) }> 
                         <MdDone /> 
                     </span>
+}
+
                 </div>
             </form>
   )

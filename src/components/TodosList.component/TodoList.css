@@ -4,6 +4,7 @@
     margin-top: 10px;
     justify-content: space-between;
     align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .todos {
@@ -19,6 +20,12 @@
     background-color: rgb(50,195,205);
 }
 
+.unStarted {
+    width: 100%;
+    background-color: rgb(0, 211, 88);
+    margin-top: 15px;
+}
+
 .todos__heading {
     font-size: 30px;
     text-align: center;
@@ -31,6 +38,9 @@
 
     .todos {
         width: 45%;
+    }
+    .unStarted {
+        width: 100%;
     }
 }
 
@@ -46,5 +56,8 @@
     .todos {
         width: 95%;
         margin-bottom: 10px;
+    }
+    .unStarted {
+        margin-top: 0px;
     }
 }

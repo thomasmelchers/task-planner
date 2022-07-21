@@ -22,7 +22,7 @@ const TodoList: React.FC<Props> = ({ todos, setTodos }) => {
                 Active Tasks
               </span>
 
-              {todos.map((todo) => ( (todo.isDone === false) &&
+              {todos.map((todo) => ( (todo.location === 'todo') &&
                 <SingleTodo 
                   todo={todo}
                   key={todo.id}
@@ -48,6 +48,23 @@ const TodoList: React.FC<Props> = ({ todos, setTodos }) => {
               )
             }
           </div>
+
+          <div className="todos unStarted">
+            <span className='todos__heading'> 
+              unStarted Tasks
+            </span>
+
+            {todos.map((todo) => ( (todo.location === "unStarted") &&
+                <SingleTodo 
+                todo={todo}
+                key={todo.id}
+                todos={todos}
+                setTodos={setTodos}
+                />)
+              )
+            }
+          </div>
+
     </div>    
   )
 }

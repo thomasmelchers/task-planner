@@ -60,6 +60,7 @@ const TodoList: React.FC<Props> = ({ todos, setTodos }) => {
                 key={todo.id}
                 todos={todos}
                 setTodos={setTodos}
+                
                 />)
               )
             }

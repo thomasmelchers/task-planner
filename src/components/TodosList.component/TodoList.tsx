@@ -33,6 +33,22 @@ const TodoList: React.FC<Props> = ({ todos, setTodos }) => {
               }
             </div>
 
+            <div className="todos inProgress" >
+              <span className='todos__heading'> 
+                In Progress Tasks
+              </span>
+
+              {todos.map((todo) => ( (todo.location === 'inProgress') &&
+                <SingleTodo 
+                  todo={todo}
+                  key={todo.id}
+                  todos={todos}
+                  setTodos={setTodos}
+                  />)
+                )
+              }
+            </div>
+
           <div className="todos completed">
             <span className='todos__heading'> 
               Completed Tasks

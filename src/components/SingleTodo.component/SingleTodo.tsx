@@ -3,6 +3,7 @@ import './SingleTodo.css'
 import { Todo } from '../../interface/todo-models'
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai'
 import { MdDone, MdAddCircle, MdRemoveCircle } from 'react-icons/md'
+import { BsFillCaretRightFill } from 'react-icons/bs'
 
 
 
@@ -29,17 +30,30 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
         )
     }
 
-    const handleRemove = (id: number) => {
+    const handleContinue = (id: number) => {
         setTodos(
             todos.map((todo) => 
                 todo.id === id? 
                     todo.location === 'todo'?
-                        { ...todo, location: 'unStarted' } :
+                        { ...todo, location: 'inProgress' } :
                         todo
                 : todo       
             )
         )
     }
+
+    const handleRemove = (id: number) => {
+        setTodos(
+            todos.map((todo) => 
+                todo.id === id? 
+                    (todo.location === 'todo')?
+                        { ...todo, location: 'unStarted' }:
+                        todo
+                : todo       
+            )
+        )
+    }
+
 
     // FILTER FUNCTION : if the id of the selected item is different of the id of other item then it keep the last item
     const handleDelete = (id: number) => {
@@ -53,9 +67,9 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
         setTodos(
             todos.map((todo) => 
                 todo.id === id? 
-                    todo.location === 'todo'?
+                    todo.location === 'inProgress'?
                         { ...todo, isDone: !todo.isDone, location: 'completed' } :
-                        {...todo, isDone: !todo.isDone, location: 'todo'}
+                        {...todo, isDone: !todo.isDone, location: 'inProgress'}
                 : todo       
             )
         )
@@ -141,8 +155,14 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
                     <span className='icon' onClick={() => handleDelete(todo.id) }> 
                         <AiFillDelete /> 
                     </span>
-                    
-                    { (todo.location === 'todo' || todo.location === 'completed') &&
+
+                    { (todo.location === 'todo') &&
+                    <span className='icon' onClick={() => handleContinue(todo.id) }> 
+                        <BsFillCaretRightFill /> 
+                    </span>
+}
+
+                    { (todo.location === 'inProgress' || todo.location === 'completed') &&
                     <span className='icon' onClick={() => handleDone(todo.id) }> 
                         <MdDone /> 
                     </span>

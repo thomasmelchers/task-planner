@@ -2,5 +2,5 @@ export interface Todo {
     id: number;
     todo: string | number;
     isDone: boolean;
-    location: "unStarted" | "todo" | "completed";
+    location: "unStarted" | "inProgress" | "todo" | "completed";
 }

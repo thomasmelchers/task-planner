@@ -18,7 +18,10 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
     const [edit, setEdit] = useState<boolean>(false);
     const [editTodo, setEditTodo] = useState<string | number>(todo.todo);
 
-    const handleLocation = (id: number, location: "unStarted" | "inProgress" | "todo" | "completed" , newLocation: "unStarted" | "inProgress" | "todo" | "completed" ) => {
+    const handleLocation = 
+        (   id: number, 
+            location: "unStarted" | "inProgress" | "todo" | "completed" , 
+            newLocation: "unStarted" | "inProgress" | "todo" | "completed" ) => {
         setTodos(
             todos.map((todo) => 
                 todo.id === id? 

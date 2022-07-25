@@ -2,6 +2,7 @@ import React from 'react'
 import { MdDone, MdAddCircle, MdRemoveCircle } from 'react-icons/md'
 import { BsFillCaretRightFill } from 'react-icons/bs'
 import { Todo } from '../../interface/todo-models'
+import "./TodoActions.css"
 
 interface Props {
     todo: Todo,

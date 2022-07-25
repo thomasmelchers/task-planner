@@ -14,7 +14,7 @@ type Props = {
 const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
 
     const [edit, setEdit] = useState<boolean>(false);
-    const [editTodo, setEditTodo] = useState<string | number>(todo.todo);
+    const [editTodo, setEditTodo] = useState<string>(todo.todo);
 
 
     // FILTER FUNCTION : if the id of the selected item is different of the id of other item then it keep the last item

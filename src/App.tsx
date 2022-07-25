@@ -6,7 +6,7 @@ import { Todo } from './interface/todo-models';
 
 const App: React.FC = () => { // React.FC => functionnal component
 
-  const [todo, setTodo] = useState<string | number>("");
+  const [todo, setTodo] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>([]);
 
   const handleAdd = (e: React.FormEvent) => {

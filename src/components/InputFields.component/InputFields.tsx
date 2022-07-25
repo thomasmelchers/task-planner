@@ -3,7 +3,7 @@ import './InputFields.css'
 
 interface Props{
   todo: string | number,
-  setTodo: React.Dispatch<React.SetStateAction<string | number>>,
+  setTodo: React.Dispatch<React.SetStateAction<string>>,
   handleAdd: (e: React.FormEvent) => void // function which return nothing
 }
 // const InputFields = ({ todo, setTodo }: Props) => {   => Two ways to declare the components types ! 

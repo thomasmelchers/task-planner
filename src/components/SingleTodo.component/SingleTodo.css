@@ -1,12 +1,17 @@
 .todos__single {
     display: flex;
+    flex-direction: column;
     /* width: 29.5%; */
     border-radius: 5px;
     padding: 20px;
     /* border: 1px solid red; */
     margin-top: 15px;
     background-image: url("https://img.freepik.com/free-photo/crumpled-yellow-paper-background-close-up_60487-2390.jpg?size=626&ext=jpg");
-    transition: 0.2s
+    transition: 0.2s;
+}
+.todos__single__title-container {
+    display: flex;
+    justify-content: flex-start;
 }
 
 .todos__single--text {
@@ -14,6 +19,8 @@
     padding: 5px;
     border: none;
     font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
 .todos__single--text:focus {
@@ -33,6 +40,59 @@
 
 .icon :hover {
     color: lightseagreen
+}
+
+.todos__single__info-container {
+    display: flex;
+
+}
+
+.todos__single__info--text {
+    width: 33%;
+    display: flex;
+    align-items: flex-end;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 5px;
+}
+
+
+.technology {
+    justify-content: center;
+}
+
+.storyPoint {
+    justify-content: right;
+    position: relative;
+    padding-right: 5px;
+}
+
+.todos__single__info__storyPoint {
+    position: absolute;
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-size: 15px;
+    color: white;
+    background-color: #2f74c0;
+    letter-spacing: 1px;
+    z-index: 0;
+}
+
+.icon-brown {
+    color: rgb(139, 92, 51);
+}
+
+.icon-brown :hover {
+    color: rgb(78, 52, 29);
+}
+
+.icon-grey {
+    color: rgb(138, 137, 137);
+}
+
+.icon-grey :hover {
+    color: rgb(71, 71, 71);
 }
 
 @media (max-width: 700px) {

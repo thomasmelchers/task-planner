@@ -46,12 +46,12 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
     }, [edit])
 
   return (
-
+        <>
         <form 
             className='todos__single' 
             onSubmit={(e) => handleSubmit(e, todo.id)}
             >
-
+                <div className='todos__single__title-container'>
             {/* edit = true */}
             {edit? (
 
@@ -78,7 +78,7 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
                     <TodoActions todo={todo} todos={todos} setTodos={setTodos} />            
                     
                     <span 
-                        className='icon' 
+                        className='icon icon-brown' 
                         onClick= { () => 
                             {
                                 // if edit = false && isDone = false => edit = true
@@ -91,12 +91,21 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
                         <AiFillEdit /> 
                     </span>
                 
-                    <span className='icon' onClick={() => handleDelete(todo.id) }> 
+                    <span className='icon icon-grey' onClick={() => handleDelete(todo.id) }> 
                         <AiFillDelete /> 
                     </span>
 
                 </div>
+            </div>
+                <div className='todos__single__info-container'>
+                    <div className='todos__single__info--text'><p className='todos__single__info__type'>{todo.type}</p></div>
+                    <div className='todos__single__info--text technology'><p className='todos__single__info__technology'>{todo.technology}</p></div>
+                    <div className='todos__single__info--text storyPoint'><p className='todos__single__info__storyPoint'>{todo.storyPoint}</p></div>
+                </div>
             </form>
+            
+            
+        </>
   )
 }
 

@@ -19,7 +19,7 @@ const TodoList: React.FC<Props> = ({ todos, setTodos }) => {
 
             <div className="todos" >
               <span className='todos__heading'> 
-                Active Tasks
+                Active Sprint
               </span>
 
               {todos.map((todo) => ( (todo.location === 'todo') &&
@@ -67,7 +67,7 @@ const TodoList: React.FC<Props> = ({ todos, setTodos }) => {
 
           <div className="todos unStarted">
             <span className='todos__heading'> 
-              unStarted Tasks
+              BackLog
             </span>
 
             {todos.map((todo) => ( (todo.location === "unStarted") &&

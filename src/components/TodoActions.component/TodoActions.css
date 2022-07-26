@@ -4,8 +4,31 @@
     cursor: pointer;
   }
 
-.icon :hover {
+/* .icon :hover {
     color: lightseagreen
+} */
+
+.icon-blue {
+    color: rgb(20, 152, 235)
+}
+
+.icon-blue :hover {
+    color: rgb(86, 86, 195)
+}
+
+.icon-red {
+    color: rgb(216, 86, 86);
+}
+.icon-red :hover {
+    color: red
+}
+
+.icon-green {
+    color: lightseagreen;
+}
+
+.icon-green :hover {
+    color: seagreen
 }
 
 @media (max-width: 700px) {

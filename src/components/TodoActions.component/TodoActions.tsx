@@ -43,31 +43,31 @@ const TodoActions: React.FC<Props> = ({todo, todos, setTodos}) => {
   return (
     <>
         { (todo.location === 'unStarted') &&
-                    <span className='icon' onClick={() => handleLocation(todo.id, "unStarted", "todo") }> 
+                    <span className='icon icon-green' onClick={() => handleLocation(todo.id, "unStarted", "todo") }> 
                         <MdAddCircle /> 
                     </span>
                     }
 
                     { (todo.location === 'todo') &&
-                    <span className='icon' onClick={() => handleLocation(todo.id, "todo", "inProgress") }> 
+                    <span className='icon icon-green' onClick={() => handleLocation(todo.id, "todo", "inProgress") }> 
                         <BsFillCaretRightFill /> 
                     </span>
                     }
 
                     { (todo.location === 'inProgress' || todo.location === 'completed') &&
-                    <span className='icon' onClick={() => handleDone(todo.id) }> 
+                    <span className='icon icon-blue' onClick={() => handleDone(todo.id) }> 
                         <MdDone /> 
                     </span>
                     }
                     
                     { (todo.location === 'todo') &&
-                    <span className='icon' onClick={() => handleLocation(todo.id, "todo", "unStarted") }> 
+                    <span className='icon icon-red' onClick={() => handleLocation(todo.id, "todo", "unStarted") }> 
                         <MdRemoveCircle/> 
                     </span>
                     }
 
                     { (todo.location === 'inProgress') &&
-                    <span className='icon' onClick={() => handleLocation(todo.id, "inProgress", "todo") }> 
+                    <span className='icon icon-red' onClick={() => handleLocation(todo.id, "inProgress", "todo") }> 
                         <MdRemoveCircle/> 
                     </span>
                     }
